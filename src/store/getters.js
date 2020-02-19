@@ -12,7 +12,7 @@ export default {
     return state.cartList.filter(item => item.checked).reduce((pre, item) => { return pre + item.count }, 0)
   },
   cartPrice(state) {
-    return "￥" + state.cartList.filter(item => item.checked).reduce((pre, item) => { return pre + item.realPrice * item.count }, 0)
+    return "￥" + state.cartList.filter(item => item.checked).reduce((pre, item) => { return pre + item.realPrice * item.count }, 0).toFixed(2)
   },
   cartSelectAll(state) {
     if ( state.cartList.length === 0) return false;

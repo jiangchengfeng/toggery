@@ -12,6 +12,7 @@
     </scroll>
     <detail-bottom-bar  @addToCart="addToCart" />
     <back-top @click.native="backClick" v-show="isShowBackTop" />
+    <!-- <toast :message="message" :show="show"/> -->
   </div>
 </template>
 
@@ -28,6 +29,7 @@ import DetailBottomBar from "./childComps/DetailBottomBar";
 import GoodsList from "components/content/goods/GoodsList";
 import Scroll from "components/common/scroll/Scroll";
 // import BackTop from "components/content/backTop/BackTop";
+// import Toast from 'components/common/toast/Toast';
 
 import {
   getDetail,
@@ -52,8 +54,9 @@ export default {
     DetailCommentInfo,
     DetailBottomBar,
     GoodsList,
-    Scroll
-    // BackTop
+    Scroll,
+    // BackTop,
+    // Toast
   },
   mixins: [itemListenerMixin, backTopMixin],
   data() {
@@ -69,7 +72,9 @@ export default {
       // itemImgListener: null
       themeTopY: [],
       currentIndex: 0,
-      isShowBackTop: false
+      isShowBackTop: false,
+      // message:'',
+      // show:false
     };
   },
   created() {
@@ -189,7 +194,18 @@ export default {
       // this.$store.commit('addCart',product)
       this.addCart(product).then(res => {
         // console.log(res)
-        this.$message({message:res,offset:300,type: 'success',center: true,duration:2000});
+        // this.message = res
+        // this.show = true
+        // setTimeout(()=>{
+        //   this.message = ''
+        //   this.show = false
+        // },1500)
+
+        // 自己封装的toast
+        this.$toast.show(res)
+
+        // element ui插件 通知栏
+        // this.$message({message:res,offset:300,type: 'success',center: true,duration:2000});
       });
 
       // this.$store.dispatch('addCart',product).then(res=>{

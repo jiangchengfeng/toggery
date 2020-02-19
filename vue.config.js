@@ -7,8 +7,7 @@
 //         'components':path.join(__dirname,'src/components'),
 //         'network':path.join(__dirname,'src/network'),
 //         'views':path.join(__dirname,'src/views'),
-//         'router':path.join(__dirname,'src/router'),
-        
+//         'router':path.join(__dirname,'src/router'),       
 //       }
 //     }
 //   }

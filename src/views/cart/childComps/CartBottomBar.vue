@@ -5,7 +5,7 @@
       <span>全选</span>
     </div>
     <div class="price">合计:{{totalPrice}}</div>
-    <div class="calculate">去计算({{checkCount}})</div>
+    <div class="calculate" @click="calcClick">去计算({{checkCount}})</div>
   </div>
 </template>
 
@@ -50,6 +50,11 @@ export default {
         this.$store.state.cartList.forEach(item => (item.checked = true));
       }
       // this.$store.commit('checkeAllClick',this.$store.state.cartList)
+    },
+    calcClick(){
+      if(!this.isSelectAll) {
+        this.$toast.show('请选择购买商品',2000)
+      }
     }
   }
 };
