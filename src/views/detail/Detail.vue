@@ -10,7 +10,7 @@
       <detail-comment-info ref="comment" :comment-info="commentInfo" />
       <goods-list ref="recommend" :goods="recommends" />
     </scroll>
-    <detail-bottom-bar  @addToCart="addToCart" />
+    <detail-bottom-bar @addToCart="addToCart" />
     <back-top @click.native="backClick" v-show="isShowBackTop" />
     <!-- <toast :message="message" :show="show"/> -->
   </div>
@@ -54,7 +54,7 @@ export default {
     DetailCommentInfo,
     DetailBottomBar,
     GoodsList,
-    Scroll,
+    Scroll
     // BackTop,
     // Toast
   },
@@ -72,7 +72,7 @@ export default {
       // itemImgListener: null
       themeTopY: [],
       currentIndex: 0,
-      isShowBackTop: false,
+      isShowBackTop: false
       // message:'',
       // show:false
     };
@@ -94,6 +94,7 @@ export default {
         data.columns,
         data.shopInfo.services
       );
+
       // 3.获取店铺信息
       this.shop = new Shop(data.shopInfo);
 
@@ -202,7 +203,7 @@ export default {
         // },1500)
 
         // 自己封装的toast
-        this.$toast.show(res)
+        this.$toast.show(res);
 
         // element ui插件 通知栏
         // this.$message({message:res,offset:300,type: 'success',center: true,duration:2000});

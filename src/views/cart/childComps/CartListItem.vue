@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     checkClick() {
-      this.product.checked = !this.product.checked;
+      this.$store.commit('checkClick',this.product)
+      // this.product.checked = !this.product.checked;
     }
   }
 };

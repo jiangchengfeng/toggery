@@ -56,7 +56,7 @@ export default {
     refresh() {
       // 刷新 重新获取内容高度(scrollerHeight)
       this.scroll && this.scroll.refresh();
-      // console.log('---');
+      console.log('---');
     },
     getScrollY() {
       return this.scroll ? this.scroll.y : 0;

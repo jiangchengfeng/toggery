@@ -41,7 +41,7 @@ import Scroll from "components/common/scroll/Scroll";
 
 import { getHomeMultidata, getHomeGoods } from "network/home";
 import { debounce } from "utils/debounce";
-import {itemListenerMixin,backTopMixin} from 'utils/mixin'
+import { itemListenerMixin, backTopMixin } from "utils/mixin";
 
 export default {
   name: "Home",
@@ -52,10 +52,10 @@ export default {
     NavBar,
     TabControl,
     GoodsList,
-    Scroll,
+    Scroll
     // BackTop
   },
-  mixins:[itemListenerMixin,backTopMixin],
+  mixins: [itemListenerMixin, backTopMixin],
   data() {
     return {
       banners: [],
@@ -70,7 +70,7 @@ export default {
       tabOffsetTop: 0,
       isTabFixed: false,
       saveY: 0,
-      // itemImgListener: null
+      itemImgListener: null
     };
   },
   destroyed() {
@@ -99,7 +99,7 @@ export default {
   },
   mounted() {
     // const refresh = debounce(this.$refs.scroll.refresh, 50);
-    // // 3.监听item中图片加载完成
+    // 3.监听item中图片加载完成
     // this.itemImgListener = () => {
     //   refresh();
     // };
@@ -109,11 +109,18 @@ export default {
     /**
      * 网络请求相关的方法
      */
-    getHomeMultidata() {
-      getHomeMultidata().then(res => {
-        this.banners = res.data.banner.list;
-        this.recommends = res.data.recommend.list;
-      });
+    async getHomeMultidata() {
+      //  console.log(getHomeMultidata())
+      const { data: res } = await getHomeMultidata();
+      console.log(res)
+      this.banners = res.banner.list;
+      this.recommends = res.recommend.list;
+      // this.banners = res.data.banner.list;
+      // this.recommends = res.data.recommend.list;
+      // getHomeMultidata().then(res => {
+      //   this.banners = res.data.banner.list;
+      //   this.recommends = res.data.recommend.list;
+      // });
     },
     getHomeGoods(type) {
       let page = this.goods[type].page + 1;
@@ -180,6 +187,7 @@ export default {
 .home-nav {
   background-color: var(--color-tint);
   color: #fff;
+  /* 原生滚动 */
   /* position: fixed;
   left: 0;
   right: 0;

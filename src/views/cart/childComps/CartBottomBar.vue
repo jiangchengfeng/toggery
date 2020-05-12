@@ -44,16 +44,16 @@ export default {
   },
   methods: {
     checkeAllClick() {
-      if (this.isSelectAll) {
-        this.$store.state.cartList.forEach(item => (item.checked = false));
-      }else {
-        this.$store.state.cartList.forEach(item => (item.checked = true));
-      }
-      // this.$store.commit('checkeAllClick',this.$store.state.cartList)
+      // if (this.isSelectAll) {
+      //   this.$store.state.cartList.forEach(item => (item.checked = false));
+      // } else {
+      //   this.$store.state.cartList.forEach(item => (item.checked = true));
+      // }
+      this.$store.commit('checkeAllClick',this.isSelectAll)
     },
-    calcClick(){
-      if(!this.isSelectAll) {
-        this.$toast.show('请选择购买商品',2000)
+    calcClick() {
+      if (!this.isSelectAll) {
+        this.$toast.show("请选择购买商品", 2000);
       }
     }
   }
@@ -62,16 +62,13 @@ export default {
 
 <style scoped>
 .bottom-bar {
-  position: relative;
   display: flex;
-  height: 40px;
   background-color: #eee;
-  top: 534.2px;
+  position: fixed;
+  bottom: 49px;
   left: 0;
   right: 0;
-  bottom: 0;
   line-height: 40px;
-
   font-size: 14px;
 }
 .check-content {

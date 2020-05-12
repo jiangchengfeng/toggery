@@ -20,11 +20,14 @@ export default {
     payload.count = 1
     state.cartList.push(payload)
   },
-  // checkeAllClick(state, payload) {
-  //   if (state.cartList.find(item => !item.checked)) {
-  //     payload.forEach(item => (item.checked = false));
-  //   } else {
-  //     payload.forEach(item => (item.checked = true));
-  //   }
-  // }
+  checkeAllClick(state, payload) {
+    if (payload) {
+      state.cartList.forEach(item => (item.checked = false));
+    } else {
+      state.cartList.forEach(item => (item.checked = true));
+    }
+  },
+  checkClick(state,payload){
+    payload.checked = !payload.checked;
+  }
 }
