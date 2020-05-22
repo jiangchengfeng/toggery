@@ -112,7 +112,7 @@ export default {
     async getHomeMultidata() {
       //  console.log(getHomeMultidata())
       const { data: res } = await getHomeMultidata();
-      console.log(res)
+      // console.log(res)
       this.banners = res.banner.list;
       this.recommends = res.recommend.list;
       // this.banners = res.data.banner.list;

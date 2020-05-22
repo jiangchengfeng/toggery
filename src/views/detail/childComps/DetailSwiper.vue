@@ -42,6 +42,9 @@ export default {
   height: 300px;
 } */
 .detailSwiper {
-  height: 300px;
+  height: 400px;
+}
+.van-swipe-item img {
+  width: 100%;
 }
 </style>
